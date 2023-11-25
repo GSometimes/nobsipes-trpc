@@ -1,0 +1,24 @@
+{
+  "name": "nobsipes",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "cd server && npm run dev",
+    "dev": "concurrently --kill-others 'npm:dev:client' 'npm:dev:server'",
+    "build:client": "cd client && npm run build",
+    "build:server": "cd server && npm run build",
+    "build": "npm run build:server && npm run build:client",
+    "start:client": "cd client && npm run start",
+    "start:server": "cd server && npm run start",
+    "start": "concurrently --kill-others 'npm:start:client' 'npm:start:server'"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "concurrently": "^5.2.0"
+  }
+}
